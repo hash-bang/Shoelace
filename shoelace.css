@@ -1,0 +1,20 @@
+/* Pull-center - Center block or text elements (similar to pull-left & pull-right */
+.pull-center {
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+}
+
+.pull-vcenter, table.pull-vcenter td {
+	vertical-align: middle;
+}
+
+/* Padding controls */
+.pad, .pad-small, .pad-large, .pad-huge {display:block;}
+.pad, table.pad td {padding: 20px;}
+.pad-small, table.pad td {padding: 10px;}
+.pad-large, table.pad td {padding: 30px;}
+.pad-huge, table.pad td {padding: 50px;}
+
+/* Font sizes */
+.font-medium {font-size: 14pt;}
