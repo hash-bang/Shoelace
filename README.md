@@ -41,7 +41,7 @@ A collection of various useful CSS classes in the bootstrap style.
 		<td>Center elements dynamicly</td>
 		<td>
 <pre>
-<div class="pull-center">This element is centered within the parent</div>
+&lt;div class="pull-center"&gt;This element is centered within the parent&lt;/div&gt;
 </pre>
 		</td>
 	</tr>
@@ -50,7 +50,7 @@ A collection of various useful CSS classes in the bootstrap style.
 		<td>Center elements vertically within a parent</td>
 		<td>
 <pre>
-<div class="pull-vcenter">This element is vertically centered within a block parent</div>
+&lt;div class="pull-vcenter"&gt;This element is vertically centered within a block parent&lt;/div&gt;
 </pre>
 		</td>
 	</tr>
@@ -59,8 +59,8 @@ A collection of various useful CSS classes in the bootstrap style.
 		<td>Change the padding of an element</td>
 		<td>
 <pre>
-<div class="pad">This element has some padding</div>
-<div class="pad-huge">This element has a huge amount of padding</div>
+&lt;div class="pad"&gt;This element has some padding</div>
+&lt;div class="pad-huge"&gt;This element has a huge amount of padding&lt;/div&gt;
 </pre>
 		</td>
 	</tr>
@@ -69,8 +69,8 @@ A collection of various useful CSS classes in the bootstrap style.
 		<td>Change the font size within an element</td>
 		<td>
 <pre>
-<div class="font-medium">This element has a normal sized font</div>
-<div class="font-huge">This element has a huge font</div>
+&lt;div class="font-medium"&gt;This element has a normal sized font&lt;/div&gt;
+&lt;div class="font-huge"&gt;This element has a huge font&lt;/div&gt;
 </pre>
 		</td>
 	</tr>
