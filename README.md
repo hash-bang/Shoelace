@@ -50,7 +50,10 @@ A collection of various useful CSS classes in the bootstrap style.
 		<td>Center elements vertically within a parent</td>
 		<td>
 <pre>
-&lt;div class="pull-vcenter"&gt;This element is vertically centered within a block parent&lt;/div&gt;
+&lt;div class="pull-vcenter"&gt;
+	This element is vertically centered
+	within a block parent
+&lt;/div&gt;
 </pre>
 		</td>
 	</tr>
