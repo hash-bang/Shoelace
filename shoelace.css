@@ -12,9 +12,19 @@
 /* Padding controls */
 .pad, .pad-small, .pad-large, .pad-huge {display:block;}
 .pad, table.pad td {padding: 20px;}
-.pad-small, table.pad td {padding: 10px;}
-.pad-large, table.pad td {padding: 30px;}
-.pad-huge, table.pad td {padding: 50px;}
+.pad-small, table.pad-small td {padding: 10px;}
+.pad-large, table.pad-large td {padding: 30px;}
+.pad-huge, table.pad-huge td {padding: 50px;}
+.pad-bottom, .pad-bottom-small, .pad-bottom-large, .pad-bottom-huge {display:block;}
+.pad-bottom, table.pad-bottom td {padding-bottom: 20px;}
+.pad-bottom-small, table.pad-bottom-small td {padding-bottom: 10px;}
+.pad-bottom-large, table.pad-bottom-large td {padding-bottom: 30px;}
+.pad-bottom-huge, table.pad-bottom-huge td {padding-bottom: 50px;}
+.pad-top, .pad-top-small, .pad-top-large, .pad-top-huge {display:block;}
+.pad-top, table.pad-top td {padding-top: 20px;}
+.pad-top-small, table.pad-top-small td {padding-top: 10px;}
+.pad-top-large, table.pad-top-large td {padding-top: 30px;}
+.pad-top-huge, table.pad-top-huge td {padding-top: 50px;}
 
 /* Font sizes */
 .font-small {font-size: 10pt;}
