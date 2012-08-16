@@ -91,6 +91,15 @@ Additional parameters:
 * data-tip-placement - Set the tooltip position
 
 
+Prefixing input boxes
+---------------------
+Apply a read-only prefix to input boxes using the Bootstrap input-prepend style.
+
+	<input data-prefix="$" value="10"/>
+
+The above example will draw a standard input box with a sexy '$' prefix to denote money.
+
+
 TODO list & ideas
 =================
 * Confirm buttons (possibly <a data-confirm="Are you sure"...>) will popup a small tooltip with Yes/No buttons when clicking a link - useful for delete buttons and other things that require two-factor checks

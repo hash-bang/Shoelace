@@ -12,5 +12,12 @@ $('[data-tip]').each(function() {
 	$(this).tooltip(settings);
 });
 /* }}} */
+/* data-prefix {{{ */
+$('[data-prefix]').each(function() {
+	$(this)
+		.wrap('<div class="input-prepend"></div>')
+		.before('<span class="add-on">' + $(this).data('prefix') + '</span>');
+});
+/* }}} */
 
 });
