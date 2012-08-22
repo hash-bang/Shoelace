@@ -91,13 +91,26 @@ Additional parameters:
 * data-tip-placement - Set the tooltip position
 
 
-Prefixing /Suffixing input boxes
----------------------
+Prefixing / Suffixing input boxes
+--------------------------------
 Apply a read-only prefix or suffix to input boxes using the Bootstrap input-prepend and input-append styles.
 
 	<input data-prefix="$" data-suffix=".00" value="10"/>
 
 The above example will draw a standard input box with a sexy '$' prefix to denote money and the suffix '.00'.
+
+
+Adding inline help or block help to input boxes
+-----------------------------------------------
+Similar to the above section on prefixing & suffixing, a simple data- tag can be added to input boxes to automatically add inline or block help eleements.
+
+	<input data-help-inline="required" value="Hello World"/>
+
+Adds 'required' horizontally after the input box.
+
+	<input data-help-block="required" value="Hello World"/>
+
+Adds 'required' in a block below the input box.
 
 
 TODO list & ideas

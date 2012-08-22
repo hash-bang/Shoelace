@@ -22,5 +22,13 @@ $('[data-prefix], [data-suffix]').each(function() {
 		me.after('<span class="add-on">' + me.data('suffix') + '</span>');
 });
 /* }}} */
+/* data-help-inline, data-help-block {{{ */
+$('[data-help-inline]').each(function() {
+	$(this).after('<span class="help-inline">' + $(this).data('help-inline') + '</span>');
+});
+$('[data-help-block]').each(function() {
+	$(this).after('<span class="help-block">' + $(this).data('help-block') + '</span>');
+});
+/* }}} */
 
 });
