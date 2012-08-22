@@ -12,11 +12,14 @@ $('[data-tip]').each(function() {
 	$(this).tooltip(settings);
 });
 /* }}} */
-/* data-prefix {{{ */
-$('[data-prefix]').each(function() {
-	$(this)
-		.wrap('<div class="input-prepend"></div>')
-		.before('<span class="add-on">' + $(this).data('prefix') + '</span>');
+/* data-prefix, data-suffix {{{ */
+$('[data-prefix], [data-suffix]').each(function() {
+	var me = $(this);
+	me.wrap('<div class="' + (me.data('prefix') ? 'input-prepend ' : '') + (me.data('suffix') ? 'input-append' : '') + '"></div>');
+	if (me.data('prefix'))
+		me.before('<span class="add-on">' + me.data('prefix') + '</span>');
+	if (me.data('suffix'))
+		me.after('<span class="add-on">' + me.data('suffix') + '</span>');
 });
 /* }}} */
 

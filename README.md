@@ -91,13 +91,13 @@ Additional parameters:
 * data-tip-placement - Set the tooltip position
 
 
-Prefixing input boxes
+Prefixing /Suffixing input boxes
 ---------------------
-Apply a read-only prefix to input boxes using the Bootstrap input-prepend style.
+Apply a read-only prefix or suffix to input boxes using the Bootstrap input-prepend and input-append styles.
 
-	<input data-prefix="$" value="10"/>
+	<input data-prefix="$" data-suffix=".00" value="10"/>
 
-The above example will draw a standard input box with a sexy '$' prefix to denote money.
+The above example will draw a standard input box with a sexy '$' prefix to denote money and the suffix '.00'.
 
 
 TODO list & ideas
