@@ -113,6 +113,15 @@ Adds 'required' horizontally after the input box.
 Adds 'required' in a block below the input box.
 
 
+Focusing inputs
+---------------
+To automaticly focus an element simply add 'data-focus' to its attributes like so:
+
+	<input data-focus="1" value="Hello World"/>
+
+Note that only the first element will be focused.
+
+
 TODO list & ideas
 =================
 * Confirm buttons (possibly <a data-confirm="Are you sure"...>) will popup a small tooltip with Yes/No buttons when clicking a link - useful for delete buttons and other things that require two-factor checks

@@ -30,5 +30,10 @@ $('[data-help-block]').each(function() {
 	$(this).after('<span class="help-block">' + $(this).data('help-block') + '</span>');
 });
 /* }}} */
-
+/* data-focus {{{ */
+$('[data-focus]').each(function() {
+	$(this).focus();
+	return false; // Only focus the first one
+});
+/* }}} */
 });
