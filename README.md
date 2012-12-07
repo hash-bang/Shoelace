@@ -63,7 +63,9 @@ A collection of various useful CSS classes in the bootstrap style.
 		<td>
 <pre>
 &lt;div class="pad"&gt;This element has some padding</div>
+&lt;div class="pad-right pad-left"&gt;This element has some padding on the right and left</div>
 &lt;div class="pad-huge"&gt;This element has a huge amount of padding&lt;/div&gt;
+&lt;div class="pad-huge-top"&gt;This element has a huge amount of padding (but only at the top)&lt;/div&gt;
 </pre>
 		</td>
 	</tr>
@@ -124,5 +126,5 @@ Note that only the first element will be focused.
 
 TODO list & ideas
 =================
-* Confirm buttons (possibly <a data-confirm="Are you sure"...>) will popup a small tooltip with Yes/No buttons when clicking a link - useful for delete buttons and other things that require two-factor checks
-* Auto focus first elements in modal dialog boxes (possibly <input data-focus="1">)
+* Confirm buttons (possibly `<a href="/somewhere" data-confirm="Are you sure">`) will popup a small tooltip with Yes/No buttons when clicking a link - useful for delete buttons and other things that require two-factor checks
+* Auto focus first elements in modal dialog boxes (possibly `<input data-focus="1">`)
