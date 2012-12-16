@@ -3,7 +3,6 @@
 * @author Matt Carter <m@ttcarter.com>
 */
 $(function() {
-
 /* data-tip {{{ */
 $('[data-tip]').each(function() {
 	settings = {title: $(this).data('tip')};
@@ -34,6 +33,25 @@ $('[data-help-block]').each(function() {
 $('[data-focus]').each(function() {
 	$(this).focus();
 	return false; // Only focus the first one
+});
+/* }}} */
+/* data-selected {{{ */
+$('.nav-tabs[data-selected]').each(function() {
+	var hash;
+	if ($(this).data('selected') == 'auto' && location.hash) {
+		hash = location.hash.substr(1);
+	} else if ($(this).data('selected')) {
+		hash = $(this).data('selected');
+	}
+	var selected = $(this).find('a[href="#' + hash + '"]');
+	console.log(selected);
+	if (selected.length) { // Found something - select it
+		selected.tab('show');
+	} else { // Nothing found - fallback to first found tab
+		selected = $(this).find('a:first[href]');
+		if (selected.length)
+			selected.tab('show');
+	}
 });
 /* }}} */
 });

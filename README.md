@@ -124,6 +124,24 @@ To automaticly focus an element simply add 'data-focus' to its attributes like s
 Note that only the first element will be focused.
 
 
+Selecting tabs
+--------------
+To select a tab you can set the data-selected property of the nav element:
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs" data-selected="tab-1">
+			<li><a href="#tab-1" data-toggle="tab">Tab 1</a></li>
+			<li><a href="#tab-2" data-toggle="tab">Tab 2</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane" id="tab-1">Tab 1 content</div>
+			<div class="tab-pane" id="tab-2">Tab 2 content</div>
+		</div>
+	</div>
+
+Alternately setting the property to 'auto' will select either the first tab OR the tab denoted by the document location. e.g. if the document url is `http://localhost/page.html#tab-2` 'tab-2' will be selected in this case.
+
+
 TODO list & ideas
 =================
 * Confirm buttons (possibly `<a href="/somewhere" data-confirm="Are you sure">`) will popup a small tooltip with Yes/No buttons when clicking a link - useful for delete buttons and other things that require two-factor checks
