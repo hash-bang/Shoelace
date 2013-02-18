@@ -70,7 +70,7 @@ A collection of various useful CSS classes in the bootstrap style.
 		</td>
 	</tr>
 	<tr>
-		<th>font-small, font-medium, font-large, font-huge</th>
+		<th>font-tiny, font-small, font-medium, font-large, font-huge</th>
 		<td>Change the font size within an element</td>
 		<td>
 <pre>
