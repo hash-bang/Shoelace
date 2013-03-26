@@ -79,6 +79,15 @@ A collection of various useful CSS classes in the bootstrap style.
 </pre>
 		</td>
 	</tr>
+	<tr>
+		<th>input-stretch</th>
+		<td>Stretch an input box to 100% of the width of the parent</td>
+		<td>
+<pre>
+&lt;input class="input-stretch"/&gt;
+</pre>
+		</td>
+	</tr>
 </table>
 
 
