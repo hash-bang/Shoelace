@@ -54,4 +54,34 @@ $('.nav-tabs[data-selected]').each(function() {
 	}
 });
 /* }}} */
+/* data-selectbyurl {{{ */
+/**
+* Perform a depth first nav-list traversal to find the most probable link to select from a set
+* Because we could be at a really deeply nested page like /foo/bar/baz we need to select any link that points to /foo/bar but not /foo
+* This upshot is that we highlight the correct (usually) link in a Bootstrap .nav-list whenever the page loads
+* @author Matt Carter <m@ttcarter.com>
+*/
+$('[data-selectbyurl]').each(function() {
+	var path = window.location.pathname;
+	var children = $(this).find($(this).data('selectbyurl') || 'li');
+	var selected;
+	var selectedlink;
+	if (path == '/' && children.find('a[href="/"]').length) { // Root item selected
+		selected = children.find('a[href="/"]').closest('li');
+	} else
+		children.each(function() {
+			var href = $(this).find('a').attr('href');
+			if (
+				href // Has a href
+				&& (href.substr(0, window.location.pathname.length) == window.location.pathname) // beginning of href matches beginning of window.location.pathname
+				&& (!selectedlink || $(this).attr('href').length > selectedlink.length) // Its longer than the last match
+			) {
+				selected = $(this);
+				selectedlink = selected.attr('href');
+			}
+		});
+	if (selected)
+		selected.addClass('active');
+});
+/* }}} */
 });
