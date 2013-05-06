@@ -5,10 +5,15 @@
 $(function() {
 /* data-tip {{{ */
 $('[data-tip]').each(function() {
-	settings = {title: $(this).data('tip')};
-	if ($(this).data('tip-placement'))
-		settings['placement'] = $(this).data('tip-placement');
-	$(this).tooltip(settings);
+	var root = $(this);
+	var addto = root;
+	var tag = root[0].nodeName.toLowerCase();
+	if (tag == 'th' || tag == 'td') // Fix for TR, TH elements with a tooltip
+		addto = root.wrapInner('<div></div>').children('div');
+	settings = {title: root.data('tip')};
+	if (root.data('tip-placement'))
+		settings['placement'] = root.data('tip-placement');
+	addto.tooltip(settings);
 });
 /* }}} */
 /* data-prefix, data-suffix {{{ */
