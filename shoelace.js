@@ -36,8 +36,12 @@ $('[data-help-block]').each(function() {
 /* }}} */
 /* data-focus {{{ */
 $('[data-focus]').each(function() {
-	$(this).focus();
+	if (!$(this).closest('.modal').length && $(this).is(':visible')) // Not within a modal && is visible
+		$(this).focus();
 	return false; // Only focus the first one
+});
+$('.modal').on('shown', function() {
+	$(this).find('[data-focus]').focus();
 });
 /* }}} */
 /* data-selected {{{ */

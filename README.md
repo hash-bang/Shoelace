@@ -132,6 +132,8 @@ To automaticly focus an element simply add 'data-focus' to its attributes like s
 
 Note that only the first element will be focused.
 
+If the element is inside a modal Shoelace will automatically focus that item when the modal becomes visible.
+
 
 Selecting tabs
 --------------
