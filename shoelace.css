@@ -5,7 +5,7 @@
 	text-align: center;
 }
 
-.pull-vcenter, table.pull-vcenter td {
+.pull-vcenter, table.pull-vcenter td, .pull-vcenter i {
 	vertical-align: middle;
 }
 
