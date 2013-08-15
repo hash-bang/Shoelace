@@ -46,6 +46,15 @@ A collection of various useful CSS classes in the bootstrap style.
 		</td>
 	</tr>
 	<tr>
+		<th>pull-reset</th>
+		<td>Sets the text alignment on this and all child elements back to the left</td>
+		<td>
+<pre>
+&lt;div class="pull-left"&gt;This element is left aligned within the parent&lt;/div&gt;
+</pre>
+		</td>
+	</tr>
+	<tr>
 		<th>pull-vcenter</th>
 		<td>Center elements vertically within a parent</td>
 		<td>
