@@ -88,6 +88,15 @@ A collection of various useful CSS classes in the bootstrap style.
 </pre>
 		</td>
 	</tr>
+	<tr>
+		<th>input-stretch</th>
+		<td>Stretch an input box to 100% of the width of the parent</td>
+		<td>
+<pre>
+&lt;input class="input-stretch"/&gt;
+</pre>
+		</td>
+	</tr>
 </table>
 
 
@@ -132,6 +141,8 @@ To automaticly focus an element simply add 'data-focus' to its attributes like s
 
 Note that only the first element will be focused.
 
+If the element is inside a modal Shoelace will automatically focus that item when the modal becomes visible.
+
 
 Selecting tabs
 --------------
@@ -150,6 +161,24 @@ To select a tab you can set the data-selected property of the nav element:
 
 Alternately setting the property to 'auto' will select either the first tab OR the tab denoted by the document location. e.g. if the document url is `http://localhost/page.html#tab-2` 'tab-2' will be selected in this case.
 
+
+Selecting items by the URL
+--------------------------
+To select an item based on the page URL you can attach the `data-selectbyurl` attribute to the parent item. The a hrefs will then be scanned and the best candidate set as `active`.
+
+	<div data-selectbyurl="li">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/foo">Foo</a></li>
+			<li><a href="/bar">Bar</a></li>
+			<li><a href="/baz">Baz</a></li>
+			<li><a href="/baz/one">Baz Item 1</a></li>
+			<li><a href="/baz/two">Baz Item 2</a></li>
+			<li><a href="/baz/three">Baz Item 3</a></li>
+		</ul>
+	</div>
+
+In the above scenario the parent `li` item will be selected if the page URL is `/`, `/foo', `/bar` and so on.
 
 TODO list & ideas
 =================
