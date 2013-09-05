@@ -81,7 +81,10 @@ $('[data-selectbyurl]').each(function() {
 	} else
 		children.each(function() {
 			var href = $(this).find('a').attr('href');
-			if (
+			if (href && href == window.location.pathname) { // Exact matches get caught immediately
+				selected = $(this);
+				return false;
+			} else if ( // Imprecise (fuzzy) matches need to be examined
 				href // Has a href
 				&& (href.substr(0, window.location.pathname.length) == window.location.pathname) // beginning of href matches beginning of window.location.pathname
 				&& (!selectedlink || $(this).attr('href').length > selectedlink.length) // Its longer than the last match
