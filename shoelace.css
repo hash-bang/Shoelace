@@ -7,6 +7,7 @@
 
 td.pull-center, th.pull-center {
 	text-align: center !important;
+	display: table-cell;
 }
 
 .pull-reset {
