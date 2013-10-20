@@ -21,6 +21,10 @@ Now add the following to your main HTML page somewhere after the Bootstrap secti
 
 ... and you're done!
 
+Shoelace will automatically apply itself when the page loads. If you use AJAX elements and wish to reinvoke Shoelace's behaviour just do:
+
+	$(this).shoelace();
+
 
 Features
 ========
@@ -181,6 +185,8 @@ To select an item based on the page URL you can attach the `data-selectbyurl` at
 In the above scenario the parent `li` item will be selected if the page URL is `/`, `/foo', `/bar` and so on.
 
 You can also specify `data-selectbyurl-parents="li"` to select all parents up the tree. This is useful if your theme requires all branches to be marked as 'active'.
+
+You can also override the URL matched (the default is the window URL) by setting `data-selectbyurl-url` to the one Shoelace should use when figuring out which item to select. This is especially useful in AJAX calls where the main document URL may not match the one requested.
 
 
 Link clicking confirmation

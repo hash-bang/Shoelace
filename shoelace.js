@@ -3,6 +3,9 @@
 * @author Matt Carter <m@ttcarter.com>
 */
 $(function() {
+	$.fn.extend({
+		shoelace: function() {
+
 /* data-tip {{{ */
 $('[data-tip]').each(function() {
 	var root = $(this);
@@ -71,22 +74,23 @@ $('.nav-tabs[data-selected]').each(function() {
 * @author Matt Carter <m@ttcarter.com>
 */
 $('[data-selectbyurl]').each(function() {
-	var path = window.location.pathname;
 	var children = $(this).find($(this).data('selectbyurl') || 'li');
 	var parents = $(this).find($(this).data('selectbyurl-parents') || '');
+	var myLocation = $(this).data('selectbyurl-url') || window.location.pathname;
 	var selected;
 	var selectedlink;
-	if (path == '/' && children.find('a[href="/"]').length) { // Root item selected
+
+	if (myLocation == '/' && children.find('a[href="/"]').length) { // Root item selected
 		selected = children.find('a[href="/"]').closest('li');
 	} else
 		children.each(function() {
 			var href = $(this).find('a').attr('href');
-			if (href && href == window.location.pathname) { // Exact matches get caught immediately
+			if (href && href == myLocation) { // Exact matches get caught immediately
 				selected = $(this);
 				return false;
 			} else if ( // Imprecise (fuzzy) matches need to be examined
 				href // Has a href
-				&& (href.substr(0, window.location.pathname.length) == window.location.pathname) // beginning of href matches beginning of window.location.pathname
+				&& (href.substr(0, myLocation.length) == myLocation) // beginning of href matches beginning of myLocation
 				&& (!selectedlink || $(this).attr('href').length > selectedlink.length) // Its longer than the last match
 			) {
 				selected = $(this);
@@ -101,11 +105,16 @@ $('[data-selectbyurl]').each(function() {
 	}
 });
 /* }}} */
-	// [data-confirm] {{{
-	$('a[data-confirm]').click(function(event) {
-		var message = $(this).data('confirm') || 'Are you really sure you wish to do this?';
-		if (!confirm(message))
-			event.preventDefault();
+// data-confirm {{{
+$('a[data-confirm]').click(function(event) {
+	var message = $(this).data('confirm') || 'Are you really sure you wish to do this?';
+	if (!confirm(message))
+		event.preventDefault();
+});
+// }}}
+
+
+		}
 	});
-	// }}}
+	$(document).shoelace();
 });
