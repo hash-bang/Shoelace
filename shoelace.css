@@ -5,6 +5,10 @@
 	text-align: center;
 }
 
+.pull-reset {
+	text-align: left;
+}
+
 .pull-vcenter, table.pull-vcenter td, .pull-vcenter i {
 	vertical-align: middle;
 }

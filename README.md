@@ -46,6 +46,15 @@ A collection of various useful CSS classes in the bootstrap style.
 		</td>
 	</tr>
 	<tr>
+		<th>pull-reset</th>
+		<td>Undo the alignment of pull-center (sometimes useful for things like dropdowns)</td>
+		<td>
+<pre>
+&lt;div class="pull-reset"&gt;This element is now back to normal within the parent&lt;/div&gt;
+</pre>
+		</td>
+	</tr>
+	<tr>
 		<th>pull-vcenter</th>
 		<td>Center elements vertically within a parent</td>
 		<td>
