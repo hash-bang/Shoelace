@@ -21,6 +21,10 @@ Now add the following to your main HTML page somewhere after the Bootstrap secti
 
 ... and you're done!
 
+Shoelace will automatically apply itself when the page loads. If you use AJAX elements and wish to reinvoke Shoelace's behaviour just do:
+
+	$(this).shoelace();
+
 
 Features
 ========
@@ -47,10 +51,10 @@ A collection of various useful CSS classes in the bootstrap style.
 	</tr>
 	<tr>
 		<th>pull-reset</th>
-		<td>Undo the alignment of pull-center (sometimes useful for things like dropdowns)</td>
+		<td>Sets the text alignment on this and all child elements back to the left</td>
 		<td>
 <pre>
-&lt;div class="pull-reset"&gt;This element is now back to normal within the parent&lt;/div&gt;
+&lt;div class="pull-left"&gt;This element is left aligned within the parent&lt;/div&gt;
 </pre>
 		</td>
 	</tr>
