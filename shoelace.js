@@ -112,7 +112,28 @@ $('a[data-confirm]').click(function(event) {
 		event.preventDefault();
 });
 // }}}
+// .dropdown-fix-clipping {{{
+$('.dropdown-fix-clipping').each(function() {
+	var ddno = 1;
+	var sibling = $(this).prev('[data-toggle=dropdown]');
 
+	var ddid = 'dropdown' + ddno;
+	while ($('#' + ddid).length) {
+		ddid++;
+		ddid = 'dropdown' + ddno;
+	}
+
+	if (sibling.attr('href') == '#') {
+		sibling
+			.attr('href', '#' + ddid)
+			.addClass('dropdown-toggle');
+		$(this)
+			.attr('id', ddid)
+			.appendTo($('body'))
+			.css({left: sibling.offset().left, top: sibling.offset().top + sibling.height() + 10});
+	}
+});
+// }}}
 
 		}
 	});

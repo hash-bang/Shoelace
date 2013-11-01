@@ -53,3 +53,7 @@ td.pull-center, th.pull-center {
 .font-huge {font-size: 20pt;}
 
 .input-stretch {width: 100%;}
+
+.dropdown-fix-clipping.open {
+	display: block;
+}
