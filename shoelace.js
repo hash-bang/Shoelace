@@ -114,12 +114,12 @@ $('a[data-confirm]').click(function(event) {
 // }}}
 // .dropdown-fix-clipping {{{
 $('.dropdown-fix-clipping').each(function() {
-	var ddno = 1;
 	var sibling = $(this).prev('[data-toggle=dropdown]');
 
-	var ddid = 'dropdown' + ddno;
+	var ddno = 1;
+	var ddid = 'dropdown1';
 	while ($('#' + ddid).length) {
-		ddid++;
+		ddno++;
 		ddid = 'dropdown' + ddno;
 	}
 
