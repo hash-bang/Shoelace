@@ -44,3 +44,5 @@
 .font-huge {font-size: 20pt;}
 
 .input-stretch {width: 100%;}
+
+.no-wrap { white-space: nowrap; }

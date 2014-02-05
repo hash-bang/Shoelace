@@ -88,6 +88,15 @@ A collection of various useful CSS classes in the bootstrap style.
 </pre>
 		</td>
 	</tr>
+	<tr>
+		<th>no-wrap</th>
+		<td>Keep all text on one line</td>
+		<td>
+<pre>
+&lt;span class="no-wrap"&gt;A very long line&lt;/&gt;
+</pre>
+		</td>
+	</tr>
 </table>
 
 
