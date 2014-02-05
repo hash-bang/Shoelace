@@ -3,6 +3,9 @@
 * @author Matt Carter <m@ttcarter.com>
 */
 $(function() {
+	$.fn.extend({
+		shoelace: function() {
+
 /* data-tip {{{ */
 $('[data-tip]').each(function() {
 	var root = $(this);
@@ -37,11 +40,11 @@ $('[data-help-block]').each(function() {
 /* data-focus {{{ */
 $('[data-focus]').each(function() {
 	if (!$(this).closest('.modal').length && $(this).is(':visible')) // Not within a modal && is visible
-		$(this).focus();
+		$(this).trigger('focus');
 	return false; // Only focus the first one
 });
 $('.modal').on('shown', function() {
-	$(this).find('[data-focus]').focus();
+	$(this).find('[data-focus]').trigger('focus');
 });
 /* }}} */
 /* data-selected {{{ */
@@ -71,26 +74,68 @@ $('.nav-tabs[data-selected]').each(function() {
 * @author Matt Carter <m@ttcarter.com>
 */
 $('[data-selectbyurl]').each(function() {
-	var path = window.location.pathname;
 	var children = $(this).find($(this).data('selectbyurl') || 'li');
+	var parents = $(this).find($(this).data('selectbyurl-parents') || '');
+	var myLocation = $(this).data('selectbyurl-url') || window.location.pathname;
 	var selected;
 	var selectedlink;
-	if (path == '/' && children.find('a[href="/"]').length) { // Root item selected
+
+	if (myLocation == '/' && children.find('a[href="/"]').length) { // Root item selected
 		selected = children.find('a[href="/"]').closest('li');
 	} else
 		children.each(function() {
 			var href = $(this).find('a').attr('href');
-			if (
+			if (href && href == myLocation) { // Exact matches get caught immediately
+				selected = $(this);
+				return false;
+			} else if ( // Imprecise (fuzzy) matches need to be examined
 				href // Has a href
-				&& (href.substr(0, window.location.pathname.length) == window.location.pathname) // beginning of href matches beginning of window.location.pathname
+				&& (href.substr(0, myLocation.length) == myLocation) // beginning of href matches beginning of myLocation
 				&& (!selectedlink || $(this).attr('href').length > selectedlink.length) // Its longer than the last match
 			) {
 				selected = $(this);
 				selectedlink = selected.attr('href');
 			}
 		});
-	if (selected)
+	if (selected) {
 		selected.addClass('active');
+		if (parents)
+			selected.parents(parents)
+				.addClass('active');
+	}
 });
 /* }}} */
+// data-confirm {{{
+$('a[data-confirm]').click(function(event) {
+	var message = $(this).data('confirm') || 'Are you really sure you wish to do this?';
+	if (!confirm(message))
+		event.preventDefault();
+});
+// }}}
+// .dropdown-fix-clipping {{{
+$('.dropdown-fix-clipping').each(function() {
+	var sibling = $(this).prev('[data-toggle=dropdown]');
+
+	var ddno = 1;
+	var ddid = 'dropdown1';
+	while ($('#' + ddid).length) {
+		ddno++;
+		ddid = 'dropdown' + ddno;
+	}
+
+	if (sibling.attr('href') == '#') {
+		sibling
+			.attr('href', '#' + ddid)
+			.addClass('dropdown-toggle');
+		$(this)
+			.attr('id', ddid)
+			.appendTo($('body'))
+			.css({left: sibling.offset().left, top: sibling.offset().top + sibling.height() + 10});
+	}
+});
+// }}}
+
+		}
+	});
+	$(document).shoelace();
 });

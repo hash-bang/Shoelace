@@ -5,6 +5,15 @@
 	text-align: center;
 }
 
+td.pull-center, th.pull-center {
+	text-align: center !important;
+	display: table-cell;
+}
+
+.pull-reset {
+	text-align: left;
+}
+
 .pull-vcenter, table.pull-vcenter td, .pull-vcenter i {
 	vertical-align: middle;
 }
@@ -45,4 +54,6 @@
 
 .input-stretch {width: 100%;}
 
-.no-wrap { white-space: nowrap; }
+.dropdown-fix-clipping.open {
+	display: block;
+}

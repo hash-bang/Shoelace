@@ -21,6 +21,10 @@ Now add the following to your main HTML page somewhere after the Bootstrap secti
 
 ... and you're done!
 
+Shoelace will automatically apply itself when the page loads. If you use AJAX elements and wish to reinvoke Shoelace's behaviour just do:
+
+	$(this).shoelace();
+
 
 Features
 ========
@@ -42,6 +46,15 @@ A collection of various useful CSS classes in the bootstrap style.
 		<td>
 <pre>
 &lt;div class="pull-center"&gt;This element is centered within the parent&lt;/div&gt;
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<th>pull-reset</th>
+		<td>Sets the text alignment on this and all child elements back to the left</td>
+		<td>
+<pre>
+&lt;div class="pull-left"&gt;This element is left aligned within the parent&lt;/div&gt;
 </pre>
 		</td>
 	</tr>
@@ -180,7 +193,22 @@ To select an item based on the page URL you can attach the `data-selectbyurl` at
 
 In the above scenario the parent `li` item will be selected if the page URL is `/`, `/foo', `/bar` and so on.
 
-TODO list & ideas
-=================
-* Confirm buttons (possibly `<a href="/somewhere" data-confirm="Are you sure">`) will popup a small tooltip with Yes/No buttons when clicking a link - useful for delete buttons and other things that require two-factor checks
-* Auto focus first elements in modal dialog boxes (possibly `<input data-focus="1">`)
+
+Confirming clicks
+-----------------
+Prompts the user with a message before allowing a link click to pass though to the normal event handler.
+
+	<a href="/somewhere/dangerous" data-confirm="Are you sure you want to go there?">Go somewhere dangerous</a>
+
+
+FIX: Dropdowns clipping within parent divs
+------------------------------------------
+Sometimes dropdowns can clip if they are positioned at the very bottom of a parent item where `overflow: hidden` is present. Applying the `dropdown-fix-clipping` style fixes this by rebinding the button that opens the dropdown by a set ID and moving the dropdown into the root body element. This means its placed at the top of the z-order stack and shouldn't overlap any other element on screen.
+.
+
+	<a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"> Open dropdown <span class="caret"></span></a>
+	<ul class="dropdown-menu dropdown-fix-clipping">
+		<li><a href="#">Item foo</li>
+		<li><a href="#">Item bar</li>
+		<li><a href="#">Item baz</li>
+	</ul>
