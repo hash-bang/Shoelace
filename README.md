@@ -191,7 +191,14 @@ To select an item based on the page URL you can attach the `data-selectbyurl` at
 		</ul>
 	</div>
 
-In the above scenario the parent `li` item will be selected if the page URL is `/`, `/foo', `/bar` and so on.
+In the above scenario the parent `li` item will be selected if the page URL is `/`, `/foo`, `/bar` and so on.
+
+
+Addtional parameters:
+
+| Parameter             | Default | Description |
+|-----------------------|---------|-------------|
+|data-selectbyurl-rough | `0`     | Specifies that 'extra rough' matching should be enabled. Use this option if your tabs only return the first section of the URL of the current page |
 
 
 Confirming clicks

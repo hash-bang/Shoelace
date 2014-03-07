@@ -77,6 +77,7 @@ $('[data-selectbyurl]').each(function() {
 	var children = $(this).find($(this).data('selectbyurl') || 'li');
 	var parents = $(this).find($(this).data('selectbyurl-parents') || '');
 	var myLocation = $(this).data('selectbyurl-url') || window.location.pathname;
+	var useRough = $(this).data('selectbyurl-rough') || 0;
 	var selected;
 	var selectedlink;
 
@@ -92,6 +93,12 @@ $('[data-selectbyurl]').each(function() {
 				href // Has a href
 				&& (href.substr(0, myLocation.length) == myLocation) // beginning of href matches beginning of myLocation
 				&& (!selectedlink || $(this).attr('href').length > selectedlink.length) // Its longer than the last match
+			) {
+				selected = $(this);
+				selectedlink = selected.attr('href');
+			} else if ( // Even more rough matching
+				useRough
+				&& myLocation.substr(0, href.length) == href
 			) {
 				selected = $(this);
 				selectedlink = selected.attr('href');
