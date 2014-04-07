@@ -5,22 +5,26 @@
 $(function() {
 	$.fn.extend({
 		shoelace: function() {
+			var me = $(this);
 
 /* data-tip {{{ */
-$('[data-tip]').each(function() {
+me.find('[data-tip]').each(function() {
 	var root = $(this);
 	var addto = root;
 	var tag = root[0].nodeName.toLowerCase();
 	if (tag == 'th' || tag == 'td') // Fix for TR, TH elements with a tooltip
 		addto = root.wrapInner('<div></div>').children('div');
 	settings = {title: root.data('tip')};
+	console.log('TIP WITH', settings);
 	if (root.data('tip-placement'))
 		settings['placement'] = root.data('tip-placement');
-	addto.tooltip(settings);
+	addto
+		.tooltip('destroy')
+		.tooltip(settings);
 });
 /* }}} */
 /* data-prefix, data-suffix {{{ */
-$('[data-prefix], [data-suffix]').each(function() {
+me.find('[data-prefix], [data-suffix]').each(function() {
 	var me = $(this);
 	me.wrap('<div class="' + (me.data('prefix') ? 'input-prepend ' : '') + (me.data('suffix') ? 'input-append' : '') + '"></div>');
 	if (me.data('prefix'))
@@ -30,25 +34,25 @@ $('[data-prefix], [data-suffix]').each(function() {
 });
 /* }}} */
 /* data-help-inline, data-help-block {{{ */
-$('[data-help-inline]').each(function() {
+me.find('[data-help-inline]').each(function() {
 	$(this).after('<span class="help-inline">' + $(this).data('help-inline') + '</span>');
 });
-$('[data-help-block]').each(function() {
+me.find('[data-help-block]').each(function() {
 	$(this).after('<span class="help-block">' + $(this).data('help-block') + '</span>');
 });
 /* }}} */
 /* data-focus {{{ */
-$('[data-focus]').each(function() {
+me.find('[data-focus]').each(function() {
 	if (!$(this).closest('.modal').length && $(this).is(':visible')) // Not within a modal && is visible
 		$(this).trigger('focus');
 	return false; // Only focus the first one
 });
-$('.modal').on('shown', function() {
+me.find('.modal').on('shown', function() {
 	$(this).find('[data-focus]').trigger('focus');
 });
 /* }}} */
 /* data-selected {{{ */
-$('.nav-tabs[data-selected]').each(function() {
+me.find('.nav-tabs[data-selected]').each(function() {
 	var hash;
 	if ($(this).data('selected') == 'auto' && location.hash) {
 		hash = location.hash.substr(1);
@@ -56,7 +60,6 @@ $('.nav-tabs[data-selected]').each(function() {
 		hash = $(this).data('selected');
 	}
 	var selected = $(this).find('a[href="#' + hash + '"]');
-	console.log(selected);
 	if (selected.length) { // Found something - select it
 		selected.tab('show');
 	} else { // Nothing found - fallback to first found tab
@@ -73,7 +76,7 @@ $('.nav-tabs[data-selected]').each(function() {
 * This upshot is that we highlight the correct (usually) link in a Bootstrap .nav-list whenever the page loads
 * @author Matt Carter <m@ttcarter.com>
 */
-$('[data-selectbyurl]').each(function() {
+me.find('[data-selectbyurl]').each(function() {
 	var children = $(this).find($(this).data('selectbyurl') || 'li');
 	var parents = $(this).find($(this).data('selectbyurl-parents') || '');
 	var myLocation = $(this).data('selectbyurl-url') || window.location.pathname;
@@ -113,14 +116,14 @@ $('[data-selectbyurl]').each(function() {
 });
 /* }}} */
 // data-confirm {{{
-$('a[data-confirm]').click(function(event) {
+me.find('a[data-confirm]').click(function(event) {
 	var message = $(this).data('confirm') || 'Are you really sure you wish to do this?';
 	if (!confirm(message))
 		event.preventDefault();
 });
 // }}}
 // .dropdown-fix-clipping {{{
-$('.dropdown-fix-clipping').each(function() {
+me.find('.dropdown-fix-clipping').each(function() {
 	var sibling = $(this).prev('[data-toggle=dropdown]');
 
 	var ddno = 1;
