@@ -2,10 +2,8 @@
 * Shoelace Javascript file
 * @author Matt Carter <m@ttcarter.com>
 */
-$(function() {
-	$.fn.extend({
-		shoelace: function() {
-			var me = $(this);
+$.fn.shoelace = function() {
+	var me = $(this);
 
 /* data-tip {{{ */
 me.find('[data-tip]').each(function() {
@@ -15,7 +13,6 @@ me.find('[data-tip]').each(function() {
 	if (tag == 'th' || tag == 'td') // Fix for TR, TH elements with a tooltip
 		addto = root.wrapInner('<div></div>').children('div');
 	settings = {title: root.data('tip')};
-	console.log('TIP WITH', settings);
 	if (root.data('tip-placement'))
 		settings['placement'] = root.data('tip-placement');
 	addto
@@ -145,7 +142,8 @@ me.find('.dropdown-fix-clipping').each(function() {
 });
 // }}}
 
-		}
-	});
+};
+
+$(function() {
 	$(document).shoelace();
 });
